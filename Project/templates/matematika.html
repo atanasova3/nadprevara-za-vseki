@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE >
+<html lang="bg">>
+    <head>
+        <meta charset="UTF-8">
+        <title>Математика</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'stylemat.css' %}">
+
+          
+     </head>
+     <body>  
+            <header>
+                <h1>Математика</h1>
+
+            </header>
+
+            {{ otgovor|safe }}
+            {% if predmet == "matematika" %}
+            <p>{{ test }}</p>
+                {% elif predmet == "Matematika" %}
+
+            {% endif %}
+
+
+
+
+    </body>
+</html>

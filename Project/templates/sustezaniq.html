@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <title>Състезания</title>
+    <link rel="stylesheet" href="{% static 'stylesustezaniq.css' %}">
+</head>
+<body>
+
+    <div class="header">
+        <h1>Състезания</h1>
+    </div>
+<div class="button">
+<a href="kalendar.html">Календар</a>
+</div>
+    <label for="category">Предмети:</label>
+    <select id="category" onchange="filterItems()">
+        <option value="all">Всички</option>
+        <option value="math">Математика</option>
+        <option value="bel">Български език</option>
+        <option value="ang">Английски език</option>
+        <option value="fiz">Физика</option>
+        <option value="him">Химия</option>
+        <option value="bio">Биология</option>
+        <option value="geo">География</option>
+        <option value="his">История</option>
+        <option value="it">Информационни технологии</option>
+    </select>
+
+    <div id="items">
+        <div class="item" data-category="math">
+            <a href="matematika.html">Математика </a>
+        </div>
+        <div class="item" data-category="bel">
+            <a href="bel.html">Български език</a>
+        </div>
+        <div class="item" data-category="ang">
+            <a href="ang.html">Английски език</a>
+        </div>
+        <div class="item" data-category="fiz">
+            <a href="fizika.html">Физика</a>
+        </div>
+        <div class="item" data-category="him">
+            <a href="himiq.html">Химия</a>
+        </div>
+        <div class="item" data-category="bio">
+            <a href="bio.html">Биология</a>
+        </div>
+        <div class="item" data-category="geo">
+            <a href="geo.html">География</a>
+        </div>
+        <div class="item" data-category="his">
+            <a href="istoriq.html">История</a>
+        </div>
+         <div class="item" data-category="it">
+            <a href="it.html" >Информационни технологии</a>
+        </div>
+    </div>
+
+    <script src="../static/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="bg">
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Календар</title>
+    <link rel="stylesheet" href="{% static 'kalendar.css' %}">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<h2 id="monthYear"></h2>
+    <div class="nav-buttons">
+        <button onclick="prevMonth()">Предишен месец</button>
+        <button onclick="nextMonth()">Следващ месец</button>
+    </div>
+    <div class="calendar-container">
+        <table class="calendar">
+            <thead>
+                <tr>
+                    <th>Нд</th>
+                    <th>Пон</th>
+                    <th>Вт</th>
+                    <th>Ср</th>
+                    <th>Чт</th>
+                    <th>П</th>
+                    <th>Сб</th>
+                </tr>
+            </thead>
+            <tbody id="calendar-body">
+
+            </tbody>
+        </table>
+    </div>
+
+<script>
+        let currentDate = new Date();
+        let currentMonth = currentDate.getMonth();
+        let currentYear = currentDate.getFullYear();
+
+        const monthYear = document.getElementById("monthYear");
+        const calendarBody = document.getElementById("calendar-body");
+
+        const months = [
+            "Януари", "Февруари", "Mарт", "Aприл", "Май", "Юни",
+            "Юли", "Август", "Септември", "Октомври", "Ноември", "Декември"
+        ];
+
+        function renderCalendar(month, year) {
+            calendarBody.innerHTML = "";
+            monthYear.innerText = `${months[month]} ${year}`;
+
+            let firstDay = new Date(year, month, 1).getDay();
+            let daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            let row = document.createElement("tr");
+
+            for (let i = 0; i < firstDay; i++) {
+                row.appendChild(document.createElement("td"));
+            }
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                if (row.children.length === 7) {
+                    calendarBody.appendChild(row);
+                    row = document.createElement("tr");
+                }
+
+                let cell = document.createElement("td");
+                cell.textContent = day;
+                row.appendChild(cell);
+            }
+
+            if (row.children.length > 0) {
+                while (row.children.length < 7) {
+                    row.appendChild(document.createElement("td"));
+                }
+                calendarBody.appendChild(row);
+            }
+        }
+
+        function prevMonth() {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            renderCalendar(currentMonth, currentYear);
+        }
+
+        function nextMonth() {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            renderCalendar(currentMonth, currentYear);
+        }
+
+        renderCalendar(currentMonth, currentYear);
+    </script>

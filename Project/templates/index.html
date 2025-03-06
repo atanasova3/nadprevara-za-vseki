@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Надпревара за всеки</title>
+    <link rel="stylesheet" href="{% static 'style2.css' %}">
+
+    
+  </head>
+<body>
+
+    <div class="header">Надпревара за всеки</div>
+    <div class="nav">
+        <div class="dropdown">
+            <button>Състезания</button>
+            <div class="dropdown-content">
+                <a href="sustezaniq.html">Филтриране</a>
+         </div>
+        </div>
+        <div class="dropdown">
+            <button>За нас</button>
+            <div class="dropdown-content">
+                <a href="ekip.html">Екип</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button>Обратна връзка</button>
+            <div class="dropdown-content">
+                <a href="kontakti.html">Контакти</a>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+<img  src="{% static '12.png' %}">
+    </div>
+    <div class="footer">Автори: Аделина Атанасова и Габриела Георгиева</div>
+</body>
+</html>
+
+
+

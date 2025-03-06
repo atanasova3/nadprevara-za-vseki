@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="bg">
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+          <title>Български език</title>
+          <link rel="stylesheet" href="{% static 'stylebel.css' %}">
+          
+     </head>
+     <body>  
+            <header>
+                <h1>Български език</h1>
+            </header>
+            <p>{{ otgovor|safe }}</p>
+
+    </body>
+</html>
